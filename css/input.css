@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Coustard:wght@400;900&display=swap');
+@import "tailwindcss";
+
+:root {
+    --font-poppins: "Poppins", sans-serif;
+    --font-coustard: "Coustard", serif;
+}
+
+body {
+    font-family: var(--font-poppins);
+    background-color: #F3F4F7;
+}
+
+
+.imga {
+    background-color: red;
+    height: 400px;
+}
+
+
+@layer layout {
+    .container-custom {
+        @apply w-[97%] mx-auto p-16;
+    }
+
+    .text-xs {
+        @apply text-[100px];
+    }
+}
+
+
+
+@layer utilities {
+    .image-forma-white {
+        position: relative;
+        background: linear-gradient(to top right, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.871), rgba(0, 0, 0, 0.763)), url('/img/3179681.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100%;
+    }
+
+    .software-factory {
+        position: relative;
+        background: linear-gradient(to top right, rgb(0, 0, 0), rgba(0, 0, 0, 0.594), rgba(0, 0, 0, 0.822)), url('/img/Software-Factory.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100%;
+    }
+    .fondo {
+        position: relative;
+        /* background: linear-gradient(to top right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)),
+                    url('/img/fondo.jpg'); */
+        background-image: url('/img/fondo.jpg');
+        background-size: cover;
+        background-position: center;
+        /* border-radius: 16px; */
+        background-blend-mode:multiply;
+      }
+}

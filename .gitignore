@@ -1,0 +1,19 @@
+# Ignorar archivos del sistema
+.DS_Store
+
+# Ignorar dependencias de Node.js
+node_modules/
+package-lock.json
+
+# Ignorar copias de archivos HTML innecesarias
+index copy*.html
+
+# Ignorar archivos generados por compiladores o herramientas temporales
+*.log
+*.tmp
+*.bak
+
+# Ignorar archivos de configuración de editores de código
+.vscode/
+.idea/
+*.swp
