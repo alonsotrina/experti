@@ -10,6 +10,10 @@
     --font-coustard: "Coustard", serif;
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
 body {
     font-family: var(--font-poppins);
     background-color: #F3F4F7;
@@ -34,31 +38,93 @@ body {
 
     nav {
         grid-area: nav;
-        background-color: #ffa08c;
     }
 
     main {
         grid-area: main;
-        background-color: #ffff64;
     }
 
     footer {
         grid-area: footer;
-        background-color: #64ff7e;
+        /* background-color: blue; */
     }
 
 }
 
 
+.box {
+    position: relative;
+    width: 100%;
+    height: 30rem;
+    /* margin: 4rem; */
+  }
+  
+ .box:hover .imgBox {
+    transform: translate(-3.5rem, -3.5rem);
+  }
+  
+ .box:hover .content {
+    transform: translate(3.5rem, 3.5rem);
+  }
+  
+  .imgBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .imgBox img {
+    width: 30rem;
+    height: 30rem;
+    object-fit: cover;
+    resize: both;
+  }
+  
+  .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    z-index: 1;
+    align-items: flex-end;
+    text-align: center;
+    transition: 0.5s ease-in-out;
+  }
+  
+  .content h2 {
+    display: block;
+    font-size: 2rem;
+    color: #111;
+    font-weight: 500;
+    line-height: 2rem;
+    letter-spacing: 1px;
+  }
+  
+  .content span {
+    color: #555;
+    font-size: 1.4rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+  }
+  
+  @media (max-width: 600px) {
+    .container .box:hover .content {
+      transform: translate(0, 3.5rem);
+    }
+    .container .box:hover .imgBox {
+      transform: translate(0, -3.5rem);
+    }
+  }
 
-
-
-
-
-
-
-
-/**********/
 
 @layer components {
     .title-header {
@@ -73,7 +139,40 @@ body {
     }
 
     .button-primary {
-        @apply bg-orange-500 hover:bg-orange-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700;
+        @apply bg-orange-400 hover:bg-orange-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700;
+    }
+
+    /* carousel */
+    .slide-card {
+        @apply relative w-full;
+    }
+    
+    .slide-card::after {
+        @apply content-[''] absolute inset-0 bg-black opacity-0 transition-opacity duration-300 ease-in;
+    }
+    
+    .group:hover .slide-card::after {
+        @apply opacity-50;
+    }
+
+    .slide-card-hover {
+        @apply absolute z-10 inset-0 opacity-0 mix-blend-multiply transition-opacity duration-200 ease-in group-hover:opacity-100 bg-orange-500;
+    }
+
+    .slide-image {
+        @apply w-full h-full object-cover;
+    }
+
+    .slide-title {
+        @apply text-4xl leading-snug text-white px-8 font-semibold;
+    }
+
+    .slide-bg-title {
+        @apply absolute bottom-0 z-30 w-[100%] h-[280px] bg-gradient-to-t from-[#000] from-0% via-[#000]/70 via-50% to-[#000]/0 to-100%;
+    }
+
+    .slide-content {
+        @apply w-full bg-transparent transition-all duration-500 group-hover:text-white py-8 px-8;
     }
 }
 
@@ -87,9 +186,9 @@ body {
         height: 100%;
     }
 
-    .software-factory {
-        position: relative;
-        background: linear-gradient(to top right, rgb(0, 0, 0), rgba(0, 0, 0, 0.594), rgba(0, 0, 0, 0.822)), url('../img/experti/services/Software-Factory.jpg');
+    .software-factory2 {
+    
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><g fill="%23000"><rect fill="%23FFF9F9" width="100%" height="100%"/><path d="M0 0v60c9 0 18-3 25-10 13-14 36-14 50 0s36 14 50 0c13-14 36-14 50 0s36 14 50 0c13-14 36-14 50 0s36 14 50 0c13-14 36-14 50 0s36 14 50 0c13-14 36-14 50 0s36 14 50 0c13-14 36-14 50 0s36 14 50 0c13-14 36-14 50 0s36 14 50 0c13-14 36-14 50 0s36 14 50 0c13-14 36-14 50 0s37 13 50 0c14-14 37-14 50 0 7 7 16 10 25 10V0H0Z"></path></g></svg>');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -106,6 +205,18 @@ body {
         /* border-radius: 16px; */
         /* background-blend-mode:multiply; */
     }
+
+    .fondo2 {
+        position: relative;
+        /* background: linear-gradient(to top right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)),
+                    url('/img/fondo.jpg'); */
+        background-image: url('../img/fondo.jpg');
+        background-size: cover;
+        background-position: center;
+        /* border-radius: 16px; */
+        background-blend-mode:multiply;
+      }
+    
 }
 
 
@@ -113,3 +224,50 @@ body {
 .foto1 {
     background-image: url('../img/experti/services/Software-Factory.jpg');
 }
+
+
+.each-slide-content .akker_btn_cls {
+	max-width: 100%;
+	position: absolute;
+	bottom: 0;
+	right: calc(-100% + 1.5rem);
+}
+
+.each-slide:hover .akker_btn_cls {
+	right: 0;
+}
+.each-slide {
+	position: relative;
+	overflow: hidden;
+}
+
+.each-slide-content h2 {
+	margin-bottom: 3.5rem;
+	transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+	display: -webkit-box;
+    -webkit-box-orient: vertical;
+
+}
+.each-slide:hover .each-slide-content h2 {
+	margin-bottom: 12rem;
+}
+
+.multi2 .each-slide:hover .each-slide-content h2 {
+	margin-bottom: 6rem;
+}
+.each-slide-content {
+	position: absolute;
+    left: 0;
+    width: 100%;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    bottom: 0;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+
