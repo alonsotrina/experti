@@ -17,6 +17,7 @@ html {
 body {
     font-family: var(--font-poppins);
     background-color: #F3F4F7;
+    /* background-color: #000; */
 }
 
 #root {
@@ -127,11 +128,17 @@ body {
 
 
 @layer components {
+    .title-h2 {
+        @apply font-medium text-4xl md:text-5xl leading-relaxed md:leading-normal;
+    }
+    .paragraph {
+        @apply font-light text-base md:text-xl leading-loose;
+    }
     .title-header {
-        @apply text-white relative text-7xl font-extralight;
+        @apply text-white text-4xl md:text-6xl font-extralight leading-relaxed md:leading-normal;
     }
     .container-custom {
-        @apply w-[97%] mx-auto p-16;
+        @apply w-[97%] mx-auto p-12 sm:p-12 md:p-16;
     }
 
     .button {
@@ -139,7 +146,7 @@ body {
     }
 
     .button-primary {
-        @apply bg-orange-400 hover:bg-orange-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700;
+        @apply bg-orange-400 z-30 relative font-semibold after:-z-20 after:absolute after:h-1 after:w-1 after:bg-orange-500 after:left-5 overflow-hidden after:bottom-0 after:translate-y-full after:rounded-md after:hover:scale-[300] after:hover:transition-all after:hover:duration-700 after:transition-all after:duration-700 transition-all duration-700;
     }
 
     /* carousel */
@@ -174,9 +181,41 @@ body {
     .slide-content {
         @apply w-full bg-transparent transition-all duration-500 group-hover:text-white py-8 px-8;
     }
+
+     /* carousel experti */
+     .content-experti {
+        @apply absolute z-30 bottom-8 left-0 w-full text-center;
+    }
+
+    .content-experti-text {
+        @apply text-white leading-relaxed px-8;
+    }
+
+    /* collpase */
+    .custom-title-collapse {
+        @apply  text-slate-800 text-3xl md:text-4xl font-light peer-checked:text-[#F1902B];
+    }
+    .custom-collapse{
+        @apply py-6 flex items-center gap-6 border-b border-[#000]/20;
+    }
+    .custom-collapse-title {
+        @apply font-normal text-2xl mb-3 leading-[50px] text-slate-800;
+    }
+    .custom-collapse-description {
+        @apply text-lg font-light leading-8 text-slate-700;
+    }
+    /* .footer {
+        @apply flex items-center flex-col justify-center gap-6;
+    } */
+    .footer-text {
+        @apply  text-gray-400 text-sm;
+    }
 }
 
 @layer utilities {
+  
+
+
     .image-forma-white {
         position: relative;
         background: linear-gradient(to top right, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.871), rgba(0, 0, 0, 0.763)), url('/img/3179681.jpg');
@@ -197,23 +236,19 @@ body {
 
     .fondo {
         position: relative;
-        background: linear-gradient(to top, #000, rgba(0, 0, 0, 0.767), rgba(0, 0, 0, 0.822)), url('../img/Software-Factory.jpg');
+        background: linear-gradient(to top, #000, rgba(0, 0, 0, 0.413), rgba(0, 0, 0, 0.537)), url('../img/Software-Factory.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        height: 100%;
         /* border-radius: 16px; */
         /* background-blend-mode:multiply; */
     }
 
     .fondo2 {
         position: relative;
-        /* background: linear-gradient(to top right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)),
-                    url('/img/fondo.jpg'); */
         background-image: url('../img/fondo.jpg');
         background-size: cover;
         background-position: center;
-        /* border-radius: 16px; */
         background-blend-mode:multiply;
       }
     
